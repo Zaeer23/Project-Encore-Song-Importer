@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import argparse
 import os
 import struct
@@ -173,11 +171,12 @@ def build_track(notes, base, is_drums, resolution):
             taps.add(start)
             continue
         offset = note - base
+        # MATH STUFF FOR .MIDI AHHHHH
         if offset == 5:
-            forced_strum.add(start)
+            forced_hopo.add(start)
             continue
         if offset == 6:
-            forced_hopo.add(start)
+            forced_strum.add(start)
             continue
         if 0 <= offset <= 4:
             slot = by_tick.setdefault(start, {})
